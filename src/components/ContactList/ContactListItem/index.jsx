@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import styles from './ContactListItem.module.css';
+import styles from './ContactListItem.module.scss';
 import { fetchRemoveContact } from './../../../redux/thunks/index';
 
 export const ContactListItem = ({ contact }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, TextField, Paper, Button } from '@mui/material';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -9,6 +9,7 @@ import { fetchAuth } from './../../redux/thunks/index';
 import styles from './Login.module.scss';
 
 export const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const {
@@ -23,17 +24,17 @@ export const Login = () => {
   });
 
   if (isAuth) {
-    return <Navigate to="/" />;
+    navigate('/');
   }
 
   const onSubmit = async values => {
     const data = await dispatch(fetchAuth(values));
-    if (!data.payload) {
+    if (!data?.payload) {
       return alert('invalid email or password');
     }
 
     if ('token' in data.payload) {
-      window.localStorage.setItem('token', data.payload.token);
+      window.localStorage.setItem('token', data?.payload?.token);
     }
   };
 

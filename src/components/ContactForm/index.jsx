@@ -2,11 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchAddContact } from 'redux/thunks';
-import styles from './ContactForm.module.css';
+import styles from './ContactForm.module.scss';
+import { getContacts } from 'redux/slices/contacts';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(getContacts);
   const [data, setData] = React.useState({
     name: '',
     number: '',

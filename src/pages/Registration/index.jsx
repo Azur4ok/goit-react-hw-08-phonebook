@@ -29,8 +29,8 @@ export const Registration = () => {
 
   const onSubmit = async values => {
     const data = await dispatch(fetchRegister(values));
-    if ('token' in data.payload) {
-      window.localStorage.setItem('token', data.payload.token);
+    if ('token' in data?.payload) {
+      window.localStorage.setItem('token', data?.payload?.token);
     }
   };
 

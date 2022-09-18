@@ -20,10 +20,10 @@ const authSlice = createSlice({
       state.status = 'loading';
     },
     [fetchRegister.fulfilled]: (state, action) => {
-      state.data = { ...action.payload.user };
+      state.data = action.payload.user;
       state.status = 'loaded';
     },
-    [fetchRegister.rejected]:  (state, action) => {
+    [fetchRegister.rejected]: (state, action) => {
       state.data = null;
       state.status = 'error';
     },
@@ -32,7 +32,7 @@ const authSlice = createSlice({
       state.status = 'loading';
     },
     [fetchAuth.fulfilled]: (state, action) => {
-      state.data = { ...action.payload.user };
+      state.data = action.payload.user;
       state.status = 'loaded';
     },
     [fetchAuth.rejected]: (state, action) => {
