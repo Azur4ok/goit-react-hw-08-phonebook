@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
 
 import { fetchIsAuth } from './redux/thunks';
 import { Header } from 'components/Header';
@@ -13,6 +13,7 @@ export const App = () => {
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchIsAuth());
+    //eslint-disable-next-line
   }, []);
 
   return (

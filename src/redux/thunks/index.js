@@ -12,14 +12,14 @@ export const fetchContacts = createAsyncThunk(
 export const fetchAddContact = createAsyncThunk(
   '/contacts/fetchAddContact',
   async params => {
-    return await axios.post('/contacts', params);
+     await axios.post('/contacts', params);
   }
 );
 
 export const fetchRemoveContact = createAsyncThunk(
   '/contacts/fetchRemoveContact',
   async id => {
-    return await axios.delete(`/contacts/${id}`);
+     await axios.delete(`/contacts/${id}`);
   }
 );
 
